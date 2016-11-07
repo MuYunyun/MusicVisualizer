@@ -21,7 +21,6 @@ header{
 	top: 10px;
 	right: 10px;
 	height: 150px;
-	border: 1px solid #fff;
 }
 header h1{
 	font-size: 40px;
@@ -32,16 +31,17 @@ header h1{
 	left: 10px;
 	top: 170px;
 	bottom: 10px;
-	width: 200px;
+	width: 15%;
 	border: 1px solid #fff;
-}
-.left ul{
 	overflow: auto;
 }
 .left ul li{
 	height: 30px;
 	line-height: 30px;
 	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .left ul li.selected{
 	color: green;
@@ -50,14 +50,15 @@ header h1{
 	top: 170px;
 	right: 10px;
 	bottom: 10px;
-	left: 220px;
-	border: 1px solid #fff;
+	left: calc(15% + 20px);
+	left: -webkit-calc(15% + 20px);
 }
 
 a {
   color: #00B7FF;
 }
 
+/* 选择哪种展现方式 */
 header .type {
 	display: inline-block;
 	margin: 0 auto;
@@ -90,3 +91,53 @@ header .type li:last-child {
 	border-bottom-right-radius: 5px
 }
 
+/* 播放样式 */
+input[type="range"]{
+	-webkit-appearance: none;
+	height: 8px;
+	background: #999;
+	border-radius: 10px;
+	outline: none;
+}
+input[type="range"]::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	height: 12px;
+	width: 12px;
+	border-radius: 100%;
+	background: #fff;
+}
+input[type="range"]::-moz-range-track{
+	-webkit-appearance: none;
+	height: 8px;
+	background: #999;
+	border-radius: 10px;
+	outline: none;
+}
+input[type="range"]::-moz-range-thumb{
+	height: 12px;
+	width: 12px;
+	border-radius: 100%;
+	background: #fff;
+	border: none;
+}
+@media screen and (max-width: 800px),screen and (max-height: 500px){
+	body{
+		font-size: 12px;
+	}
+	header{
+		height: 80px;
+	}
+	header h1{
+		font-size: 24px;
+		height: 34px;
+		line-height: 34px;
+	}
+	header .type li {
+		height: 16px;
+		line-height: 16px;
+		width: 50px;
+	}
+	.left,.rigth{
+		top: 100px;
+	}
+}
